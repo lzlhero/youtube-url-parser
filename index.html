@@ -91,7 +91,7 @@ function getVideoInfo() {
   if (url) {
     var query = url.split('?');
     if (query.length >= 2) {
-      var id = getQueryVariable(query[1], 'v')
+      var id = getQueryVariable(query[1], 'v');
       if (id) {
         $('#video-info-url')
           .css('display', 'block')
@@ -124,9 +124,9 @@ function clearVideoInfo() {
   <input id="txt-url" type="text">
   <a id="video-info-url" href="">下载影片信息</a>
   <div class="buttons">
-    <input class="button" type="button" value="解析网址⬆︎" onclick="javascript:getVideoInfo();" />
-    <input class="button" type="button" value="解析信息⬇︎" onclick="javascript:parseVideoUrl();" />
-    <input class="button" type="button" value="清除" onclick="javascript:clearVideoInfo();" />
+    <input class="button" type="button" value="解析网址 ⬆︎" onclick="javascript:getVideoInfo();" />
+    <input class="button" type="button" value="解析信息 ⬇︎" onclick="javascript:parseVideoUrl();" />
+    <input class="button" type="button" value="清除 ❌" onclick="javascript:clearVideoInfo();" />
   </div>
 
   <!-- 影片信息 -->
