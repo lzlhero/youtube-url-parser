@@ -91,17 +91,24 @@ function getQueryVariable(query, variable) {
 
 function getVideoInfo() {
   var url = $('#txt-url').val().trim();
-  if (url) {
+  if (!url) return;
+
+  var id = '';
+  var position = url.indexOf('youtu.be/');
+  if (position !== -1) {
+    id = url.substring(position + 9);
+  } else {
     var query = url.split('?');
     if (query.length >= 2) {
-      var id = getQueryVariable(query[1], 'v');
-      if (id) {
-        $('#video-info-url')
-          .css('display', 'block')
-          .text('下载影片信息：' + id)
-          .attr('href', 'https://www.youtube.com/get_video_info?video_id=' + id);
-      }
+      id = getQueryVariable(query[1], 'v');
     }
+  }
+
+  if (id) {
+    $('#video-info-url')
+      .css('display', 'block')
+      .text('下载影片信息：' + id)
+      .attr('href', 'https://www.youtube.com/get_video_info?video_id=' + id);
   }
 }
 
